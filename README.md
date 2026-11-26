@@ -36,13 +36,25 @@ npm run preview
 
 Собери сайт, запусти проверку и отправь изменения в `main`. GitHub Actions пересоберёт опубликованную версию. Исходные папки с фото и видео, локальная сборка `dist/` и необработанные отзывы исключены из Git.
 
-## Первая публикация
+## Публикация из терминала
 
-1. Создай пустой репозиторий `AlexOakman/maria-sweet-home` и отправь туда проект в ветку `main`. На GitHub Free репозиторий для Pages должен быть публичным.
-2. В настройках репозитория открой **Pages → Build and deployment → Source** и выбери **GitHub Actions**.
-3. В разделе **Actions** запусти **Publish GitHub Pages** для `main`. После завершения проверь опубликованный адрес `https://alexoakman.github.io/maria-sweet-home/`.
+Локальный репозиторий связан с `AlexOakman/maria-sweet-home` через `origin`. Git отправляет все изменения из коммитов одной командой. Для первого входа с нового компьютера можно использовать GitHub CLI.
 
-В локальном репозитории уже указан `origin` для этого адреса. После создания пустого репозитория и входа в GitHub для первой отправки выполни `git push -u origin main`.
+```sh
+gh auth login --hostname github.com --git-protocol https --web
+gh auth setup-git
+```
+
+Если ты меняешь файл публикации в `.github/workflows/`, авторизуй GitHub CLI с дополнительным правом `workflow`.
+
+```sh
+git add -A
+git status --short
+git commit -m "Update portfolio"
+git push origin main
+```
+
+Для автоматической публикации в **Settings → Pages → Build and deployment → Source** выбери **GitHub Actions**. После отправки проверь запуск **Publish GitHub Pages** в разделе **Actions** и открой сайт. [Репозиторий](https://github.com/AlexOakman/maria-sweet-home) · [Сайт](https://alexoakman.github.io/maria-sweet-home/)
 
 ## Поиск и статистика
 
